@@ -1,24 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VzK-zA-eOU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--GRABACIONES-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="SoundBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-la-Uys">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LgX-la-Uys" secondAttribute="trailing" id="77n-0Y-acv"/>
+                            <constraint firstItem="LgX-la-Uys" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EIQ-Eb-zcl"/>
+                            <constraint firstItem="LgX-la-Uys" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Z57-kk-pwu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LgX-la-Uys" secondAttribute="bottom" id="qXh-eZ-Efz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="GRABACIONES" id="QQU-q4-jrz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fXS-H8-rOZ">
+                            <connections>
+                                <segue destination="S68-Z9-vWy" kind="show" id="vL6-k3-bKs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tablaGrabaciones" destination="LgX-la-Uys" id="wfI-0s-5aJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="799" y="793"/>
+        </scene>
+        <!--Sound View Controller-->
+        <scene sceneID="hPU-E8-gPF">
+            <objects>
+                <viewController id="S68-Z9-vWy" customClass="SoundViewController" customModule="SoundBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vH9-wb-3cW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEL-HA-ygf">
+                                <rect key="frame" x="127" y="84" width="121" height="50"/>
+                                <state key="normal" title="GRABAR" image="grabar">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="grabarTapped:" destination="S68-Z9-vWy" eventType="touchUpInside" id="QSs-RU-hcH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCc-xE-fqn">
+                                <rect key="frame" x="113.5" y="154" width="148" height="32"/>
+                                <state key="normal" title=" REPRODUCIR" image="reproducir">
+                                    <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reproducirTapped:" destination="S68-Z9-vWy" eventType="touchUpInside" id="ZUv-7X-zZJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHr-yu-r6G">
+                                <rect key="frame" x="20" y="216" width="335" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Nombre de Audio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2O4-GX-bho">
+                                <rect key="frame" x="20" y="257" width="335" height="21"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaV-3e-9tv">
+                                <rect key="frame" x="145" y="298" width="85" height="30"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="  AGREGAR  ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="agregarTapped:" destination="S68-Z9-vWy" eventType="touchUpInside" id="cVS-ky-Xf7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sCc-xE-fqn" firstAttribute="centerX" secondItem="vH9-wb-3cW" secondAttribute="centerX" id="3h0-74-wqJ"/>
+                            <constraint firstItem="PaV-3e-9tv" firstAttribute="top" secondItem="2O4-GX-bho" secondAttribute="bottom" constant="20" id="6GT-m6-qsW"/>
+                            <constraint firstItem="TMh-jN-LiO" firstAttribute="trailing" secondItem="eHr-yu-r6G" secondAttribute="trailing" constant="20" id="7cq-zF-j0g"/>
+                            <constraint firstItem="2O4-GX-bho" firstAttribute="leading" secondItem="TMh-jN-LiO" secondAttribute="leading" constant="20" id="90g-iy-AJz"/>
+                            <constraint firstItem="eHr-yu-r6G" firstAttribute="centerX" secondItem="vH9-wb-3cW" secondAttribute="centerX" id="Psq-Ke-rfZ"/>
+                            <constraint firstItem="AEL-HA-ygf" firstAttribute="top" secondItem="TMh-jN-LiO" secondAttribute="top" constant="20" id="VBZ-GR-xVM"/>
+                            <constraint firstItem="eHr-yu-r6G" firstAttribute="leading" secondItem="TMh-jN-LiO" secondAttribute="leading" constant="20" id="ZKL-ul-U62"/>
+                            <constraint firstItem="2O4-GX-bho" firstAttribute="centerX" secondItem="vH9-wb-3cW" secondAttribute="centerX" id="gev-3b-fd8"/>
+                            <constraint firstItem="2O4-GX-bho" firstAttribute="top" secondItem="eHr-yu-r6G" secondAttribute="bottom" constant="20" id="ijs-YI-X5d"/>
+                            <constraint firstItem="eHr-yu-r6G" firstAttribute="top" secondItem="sCc-xE-fqn" secondAttribute="bottom" constant="30" id="mwD-zx-keG"/>
+                            <constraint firstItem="PaV-3e-9tv" firstAttribute="centerX" secondItem="vH9-wb-3cW" secondAttribute="centerX" id="wc5-Ca-aDK"/>
+                            <constraint firstItem="TMh-jN-LiO" firstAttribute="trailing" secondItem="2O4-GX-bho" secondAttribute="trailing" constant="20" id="xs0-M0-jRt"/>
+                            <constraint firstItem="AEL-HA-ygf" firstAttribute="centerX" secondItem="vH9-wb-3cW" secondAttribute="centerX" id="yLO-2O-GWS"/>
+                            <constraint firstItem="sCc-xE-fqn" firstAttribute="top" secondItem="AEL-HA-ygf" secondAttribute="bottom" constant="20" id="zwf-Zl-5Np"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TMh-jN-LiO"/>
+                    </view>
+                    <connections>
+                        <outlet property="agregarButton" destination="PaV-3e-9tv" id="QDK-oD-qZF"/>
+                        <outlet property="grabarButton" destination="AEL-HA-ygf" id="Niy-e7-HGV"/>
+                        <outlet property="nombreTextField" destination="2O4-GX-bho" id="VrY-6x-If2"/>
+                        <outlet property="reproducirButton" destination="sCc-xE-fqn" id="fJ5-40-7yi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDD-PO-rqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485" y="793"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LAb-TV-3hE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VzK-zA-eOU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RRo-oC-WF3">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0lf-XL-8N8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9z-3D-3MM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="792.95352323838085"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="grabar" width="50" height="50"/>
+        <image name="reproducir" width="32.727272033691406" height="32.727272033691406"/>
+    </resources>
 </document>
